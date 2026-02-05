@@ -9,8 +9,7 @@
 Currently a 3rd-year engineering student at **ECE Paris**, I have dedicated my career path to cybersecurity. With professional experience at **HSBC** as a Cyber Threat Analyst and **Selencia** as a SOC Analyst, I specialize in identifying vulnerabilities and hardening infrastructures to anticipate threats.
 
 * 🛡️ **Defensive Security**: Focused on SOC monitoring, incident response, and threat intelligence.
-* 🏛️ **Academic Background**: Pursuing a Master's degree in Software & Systems Security.
-* 🚀 **Objective**: Building resilient defensive architectures and securing the digital perimeter.
+* 🏛️ **Academic Background**: Pursuing a Master's degree at ECE in (soon) Cybersecurity.
 
 ---
 
