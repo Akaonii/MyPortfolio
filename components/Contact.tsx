@@ -13,7 +13,6 @@ export default function Contact() {
             I am always open to discussing Blue Team operations, threat intelligence, or system hardening. Let's build a more secure digital world together.
           </p>
           <div className="space-y-4">
-            {/* LOCALISATION RESTAURÉE */}
             <div className="flex items-center gap-4 bg-slate-900/40 p-5 rounded-xl border border-slate-800">
               <MapPin className="text-blue-500" size={24} />
               <div>

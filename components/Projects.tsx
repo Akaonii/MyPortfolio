@@ -58,7 +58,6 @@ export default function Projects() {
             whileHover={{ y: -10 }} 
             className="group bg-[#111827] rounded-2xl border border-slate-800 overflow-hidden shadow-xl"
           >
-            {/* Thumbnail & Overlay */}
             <div className="h-48 relative overflow-hidden bg-slate-800">
               <img 
                 src={p.img} 
@@ -75,8 +74,6 @@ export default function Projects() {
                 >
                   <Github size={22} />
                 </a>
-
-                {/* Play icon only if video exists (Excludes OmnesBNB) */}
                 {p.video && (
                   <a 
                     href={p.video} 
@@ -89,8 +86,6 @@ export default function Projects() {
                 )}
               </div>
             </div>
-
-            {/* Project Details */}
             <div className="p-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {p.tags.map((tag, idx) => (

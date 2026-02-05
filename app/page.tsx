@@ -3,7 +3,7 @@ import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
-import Footer from '@/components/Footer'; // On le ré-importe ici
+import Footer from '@/components/Footer'; 
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
-      <Footer /> {/* Le footer est de retour à sa place */}
+      <Footer /> 
     </main>
   );
 }

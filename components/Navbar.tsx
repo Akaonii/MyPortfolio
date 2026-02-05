@@ -20,8 +20,6 @@ export default function Navbar() {
   return (
     <nav className="fixed w-full z-50 bg-[#0b1120]/90 backdrop-blur-md border-b border-slate-800/60 shadow-2xl">
       <div className="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-        
-        {/* GAUCHE : Logo (Home) */}
         <div className="flex-1 flex justify-start">
           <a href="#home" className="flex items-center gap-3 font-bold text-2xl hover:text-blue-500 transition-all group">
             <TerminalIcon 
@@ -31,8 +29,6 @@ export default function Navbar() {
             <span className="tracking-tighter uppercase text-white">Maxime.B</span>
           </a>
         </div>
-
-        {/* MILIEU : Navigation avec Dynamic Glow Hover */}
         <div className="hidden lg:flex items-center gap-12">
           {links.map((link) => (
             <a 
@@ -47,8 +43,6 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-
-        {/* DROITE : Resume Button */}
         <div className="flex-1 flex justify-end">
           <a 
             href="/cv.pdf" 

@@ -15,13 +15,13 @@ export default function About() {
       title: "Data Analysis", 
       org: "DataScientest", 
       icon: <ShieldCheck className="text-red-400" size={20} />, 
-      href: "/certs/cert-cyber.pdf" // Chemin vers ton fichier local
+      href: "/certs/cert-cyber.pdf" 
     },
     { 
       title: "Programming for Data Science", 
       org: "DataScientest", 
       icon: <BookOpen className="text-blue-400" size={20} />, 
-      href: "/certs/cert-ciso.pdf" // Chemin vers ton fichier local
+      href: "/certs/cert-ciso.pdf" 
     }
   ];
 
@@ -79,7 +79,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Timeline Expériences */}
         <div className="border-l border-slate-800 pl-8 space-y-12">
           {experiences.map((exp, i) => (
             <div key={i} className="relative">
