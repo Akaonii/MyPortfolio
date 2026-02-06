@@ -13,19 +13,19 @@ export default function About() {
   const certifications = [
     { 
       title: "CISO - Chief Information Security Officer", 
-      org: "Professional Certification", 
+      org: "LinkedIn Learning",
       icon: <Award className="text-green-400" size={20} />, 
       href: "https://acrobat.adobe.com/id/urn:aaid:sc:EU:edc7e80a-72e1-4b08-9b48-ca76fc9cfe3b" 
     },
     { 
       title: "Data Analysis ", 
       org: "DataScientest", 
-      icon: <ShieldCheck className="text-red-400" size={20} />, 
+      icon: <BookOpen className="text-blue-400" size={20} />, 
       href: "/certs/cert-cyber.pdf" 
     },
     { 
       title: " Programming for data analysis", 
-      org: "LinkedIn Learning", 
+      org: "DataScientest",  
       icon: <BookOpen className="text-blue-400" size={20} />, 
       href: "/certs/cert-ciso.pdf" 
     }
