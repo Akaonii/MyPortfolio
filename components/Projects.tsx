@@ -65,7 +65,8 @@ export default function Projects() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80" 
               />
               
-              <div className="absolute inset-0 bg-blue-600/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-6">
+              {/* LIGNE MODIFIÉE CI-DESSOUS : Ajout de opacity-100 (mobile) et md:opacity-0 (PC) */}
+              <div className="absolute inset-0 bg-blue-600/60 flex items-center justify-center gap-6 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
                 <a 
                   href={p.link} 
                   target="_blank" 
