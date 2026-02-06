@@ -18,13 +18,13 @@ export default function About() {
       href: "https://acrobat.adobe.com/id/urn:aaid:sc:EU:edc7e80a-72e1-4b08-9b48-ca76fc9cfe3b" 
     },
     { 
-      title: "DataScientist Analyst", 
+      title: "Data Analysis ", 
       org: "DataScientest", 
       icon: <ShieldCheck className="text-red-400" size={20} />, 
       href: "/certs/cert-cyber.pdf" 
     },
     { 
-      title: "Data Analyst Prog", 
+      title: " Programming for data analysis", 
       org: "LinkedIn Learning", 
       icon: <BookOpen className="text-blue-400" size={20} />, 
       href: "/certs/cert-ciso.pdf" 
