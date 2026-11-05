@@ -1,110 +1,109 @@
-"use client";
-import { motion } from 'framer-motion';
-import { Github, Play } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import type { Content, Lang, Project } from "@/content/site";
+import SectionTitle from "./Section";
+import ProjectLinks from "./ProjectLinks";
+import DecoyDemo from "./DecoyDemo";
+import Archive from "./Archive";
 
-export default function Projects() {
-  const projects = [
-    { 
-      title: "CVE Fix Redirector", 
-      desc: "Automated vulnerability patching tool to secure local systems and manage traffic.", 
-      tags: ["HTML", "CSS", "Tailwind", "JS", "Python"], 
-      link: "https://github.com/Akaonii/CVE-Fix", 
-      video: "/videos/cvefix-demo.mp4", 
-      img: "/projects/cveFix.png" 
-    },
-    { 
-      title: "Ip-Tool", 
-      desc: "Advanced IP reconnaissance and network tracking utility designed for security analysis.", 
-      tags: ["Python", "HTML", "JS"], 
-      link: "https://github.com/Akaonii/Ip-Tool", 
-      video: "/videos/iptool-demo.mp4", 
-      img: "/projects/IpTool.png" 
-    },
-    { 
-      title: "Drawbot - Robot Autonome", 
-      desc: "Conversion of digital designs into physical robotic art via C++ and embedded systems.", 
-      tags: ["C++", "Projet Robot", "Arduino"], 
-      link: "https://github.com/Akaonii/Drawbot---Showcase", 
-      video: "/videos/drawbot-demo.mp4", 
-      img: "/projects/Drawbot.jpeg" 
-    },
-    { 
-      title: "ECECooked - Olympic Engine", 
-      desc: "Academic project themed around the Olympic Games, showcasing game logic and OOP.", 
-      tags: ["C", "Allegro"], 
-      link: "https://github.com/Akaonii/ECECooked---Showcase", 
-      video: "/videos/ececooked-demo.mp4", 
-      img: "/projects/EceCooked.png" 
-    },
-    { 
-      title: "OmnesBNB - Secure Platform", 
-      desc: "A secure property booking showcase featuring robust authentication and defensive monitoring.", 
-      tags: ["PhpMyAdmin", "MySQL", "PHP", "HTML", "CSS", "Tailwind", "JS"], 
-      link: "https://github.com/Akaonii/OmnesBNB-Showcase", 
-      img: "/projects/omnesbnb.jpg" 
-    }
-  ];
-
+export function ProjectStatus({ project }: { project: Project }) {
   return (
-    <div id="projects" className="py-24">
-      <h2 className="text-3xl font-bold mb-12 flex items-center gap-4 text-white">
-        <span className="text-blue-500 font-mono text-2xl">03.</span> Featured Projects
-      </h2>
+    <div>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs">
+        <span className="text-ink">{project.name}</span>
+        <span className={`flex items-center gap-2 ${project.active ? "text-signal" : "text-muted"}`}>
+          {project.active && <span className="pulse-dot" />}
+          {project.status}
+        </span>
+      </div>
+      <p className="mt-2 font-mono text-xs text-muted">{project.context}</p>
+    </div>
+  );
+}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((p, i) => (
-          <motion.div 
-            key={i} 
-            whileHover={{ y: -10 }} 
-            className="group bg-[#111827] rounded-2xl border border-slate-800 overflow-hidden shadow-xl"
-          >
-            <div className="h-48 relative overflow-hidden bg-slate-800">
-              <img 
-                src={p.img} 
-                alt={p.title} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80" 
+function ProjectCard({
+  project,
+  lang,
+  t,
+  index,
+}: {
+  project: Project;
+  lang: Lang;
+  t: Content;
+  index: number;
+}) {
+  const flipped = index % 2 === 1;
+  const href = `/${lang}/projects/${project.slug}`;
+  return (
+    <article
+      id={project.slug}
+      className="grid scroll-mt-24 gap-8 border-t border-line pt-8 lg:grid-cols-12 lg:gap-12"
+    >
+      <div className={`lg:col-span-5 ${flipped ? "lg:order-2" : ""}`}>
+        <div className="lg:sticky lg:top-24">
+          <ProjectStatus project={project} />
+
+          <h3 className="mt-7 font-serif text-[clamp(2.4rem,4.2vw,3.75rem)] leading-[1.04] tracking-[-0.015em]">
+            <Link href={href} className="transition-colors hover:text-signal">
+              {project.headline}
+            </Link>
+          </h3>
+          <p className="mt-6 leading-relaxed text-soft">{project.summary}</p>
+
+          <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-line pt-6">
+            {project.metrics.slice(0, 4).map((metric) => (
+              <div key={`${metric.value}-${metric.label}`}>
+                <dt className="text-3xl font-light leading-none tracking-tight">{metric.value}</dt>
+                <dd className="mt-1.5 text-xs leading-snug text-muted">{metric.label}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-8">
+            <Link
+              href={href}
+              className="group mb-5 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-signal"
+            >
+              {t.projects.readCase}
+              <ArrowRight
+                size={16}
+                aria-hidden
+                className="transition-transform group-hover:translate-x-0.5"
               />
-              
-              {/* MODIFICATION ICI : On rend le fond transparent par défaut et bleu seulement au hover PC */}
-              <div className="absolute inset-0 bg-transparent md:group-hover:bg-blue-600/60 flex items-center justify-center gap-6 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
-                <a 
-                  href={p.link} 
-                  target="_blank" 
-                  className="p-3 bg-white text-slate-950 rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-lg"
-                  title="View Source Code"
-                >
-                  <Github size={22} />
-                </a>
-                {p.video && (
-                  <a 
-                    href={p.video} 
-                    target="_blank" 
-                    className="p-3 bg-white text-slate-950 rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-lg"
-                    title="Watch Demo"
-                  >
-                    <Play size={22} />
-                  </a>
-                )}
-              </div>
-            </div>
-            <div className="p-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {p.tags.map((tag, idx) => (
-                  <span key={idx} className="text-[9px] font-mono font-bold text-blue-400 bg-blue-400/10 px-2 py-1 rounded border border-blue-500/20">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 className="text-lg font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">
-                {p.title}
-              </h3>
-              <p className="text-xs text-slate-400 italic leading-relaxed font-light">
-                {p.desc}
-              </p>
-            </div>
-          </motion.div>
+            </Link>
+            <ProjectLinks project={project} t={t.projects} />
+          </div>
+        </div>
+      </div>
+
+      <div className={`lg:col-span-7 ${flipped ? "lg:order-1" : ""}`}>
+        <Link href={href} tabIndex={-1} aria-hidden className="block overflow-hidden rounded-lg border border-line bg-raised">
+          <Image
+            src={project.image.src}
+            width={project.image.width}
+            height={project.image.height}
+            alt=""
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="settle h-auto w-full"
+          />
+        </Link>
+        {project.slug === "honeylink" && <DecoyDemo t={t.demo} />}
+      </div>
+    </article>
+  );
+}
+
+export default function Projects({ lang, t }: { lang: Lang; t: Content }) {
+  return (
+    <section id="projects" className="mx-auto max-w-[1320px] px-5 py-24 sm:px-8 sm:py-36">
+      <SectionTitle title={t.projects.title} intro={t.projects.intro} />
+      <div className="space-y-20 sm:space-y-32">
+        {t.projects.list.map((project, index) => (
+          <ProjectCard key={project.slug} project={project} lang={lang} t={t} index={index} />
         ))}
       </div>
-    </div>
+      <Archive t={t.projects} />
+    </section>
   );
 }

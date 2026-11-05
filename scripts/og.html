@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: #0b0c0e; color: #f1f0eb; }
+  body { position: relative; padding: 64px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+  .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(241,240,235,.16) 1.1px, transparent 1.2px); background-size: 30px 30px; }
+  .alert { position: absolute; font: 16px "Geist Mono", monospace; display: flex; align-items: center; gap: 14px; }
+  .alert i { display: block; width: 11px; height: 11px; background: currentColor; }
+  .meta, h1, .foot { position: relative; }
+  .meta, .foot { font: 22px "Geist Mono", monospace; color: #b9babf; }
+  h1 { font: 400 112px/1 "Instrument Serif", serif; letter-spacing: -2px; }
+  em { color: #c8f169; }
+  .foot { display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+  <div class="dots"></div>
+  <div class="alert" style="left:840px;top:90px;color:#ff8b4d"><i></i>T1110 brute force</div>
+  <div class="alert" style="left:930px;top:210px;color:#c8f169"><i></i><span id="closed"></span></div>
+  <p class="meta">Maxime Brucale</p>
+  <h1><span id="l1"></span><br><span id="l2"></span><em id="l3"></em></h1>
+  <p class="foot"><span id="sub"></span><span>ECE Paris</span></p>
+  <script>
+    const fr = location.search.includes("fr");
+    const t = fr
+      ? ["Je traite les alertes.", "Je code ", "les outils.", "Élève ingénieur en cybersécurité", "qualifiée"]
+      : ["I triage the alerts.", "I build ", "the tools.", "Cybersecurity engineering student", "triaged"];
+    l1.textContent = t[0]; l2.textContent = t[1]; l3.textContent = t[2]; sub.textContent = t[3]; closed.textContent = t[4];
+  </script>
+</body>
+</html>

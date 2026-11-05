@@ -1,0 +1,5 @@
+# Bon réflexe de lire ce fichier. / Good instinct, reading this file.
+User-agent: *
+Disallow: /admin
+
+Sitemap: https://myportfolio-mbrucale.vercel.app/sitemap.xml

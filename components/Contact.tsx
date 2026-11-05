@@ -1,55 +1,91 @@
-"use client";
-import { Mail, Linkedin, MapPin, Send } from 'lucide-react';
+import { ArrowUpRight } from "lucide-react";
+import { links, type Content } from "@/content/site";
 
-export default function Contact() {
+const fieldClass =
+  "mt-2 w-full border-b border-line bg-transparent py-2.5 text-ink outline-none transition-colors placeholder:text-muted focus:border-signal";
+
+export default function Contact({ t }: { t: Content }) {
+  const { contact } = t;
+  const socials = [
+    { label: "LinkedIn", href: links.linkedin },
+    { label: "GitHub", href: links.github },
+  ];
   return (
-    <div id="contact" className="py-24">
-      <h2 className="text-3xl font-bold mb-12 flex items-center gap-4 text-white">
-        <span className="text-blue-500 font-mono text-2xl">04.</span> Get In Touch
+    <section id="contact" className="mx-auto max-w-[1320px] px-5 pb-20 pt-24 sm:px-8 sm:pt-36">
+      <h2 className="reveal font-serif text-[clamp(4.5rem,15vw,14rem)] leading-[0.92] tracking-[-0.025em]">
+        {contact.title}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div className="space-y-8">
-          <p className="text-slate-400 text-lg leading-relaxed font-light">
-            I am always open to discussing Blue Team operations, threat intelligence, or system hardening. Let's build a more secure digital world together.
-          </p>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 bg-slate-900/40 p-5 rounded-xl border border-slate-800">
-              <MapPin className="text-blue-500" size={24} />
-              <div>
-                <p className="text-[10px] text-slate-500 font-mono uppercase tracking-widest font-bold">Location</p>
-                <p className="text-sm font-black text-slate-200">Paris, France</p>
-              </div>
-            </div>
 
-            <a href="mailto:maxime.brucale@edu.ece.fr" className="flex items-center gap-4 bg-slate-900/40 p-5 rounded-xl border border-slate-800 hover:border-blue-500 transition-all group">
-              <Mail className="text-blue-500" size={24} />
-              <div>
-                <p className="text-[10px] text-slate-500 font-mono uppercase tracking-widest font-bold">Email</p>
-                <p className="text-sm font-black text-slate-200">maxime.brucale@edu.ece.fr</p>
-              </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/maxime-brucale-b77041294/" target="_blank" className="flex items-center gap-4 bg-slate-900/40 p-5 rounded-xl border border-slate-800 hover:border-blue-500 transition-all group">
-              <Linkedin className="text-blue-600" size={24} />
-              <div>
-                <p className="text-[10px] text-slate-500 font-mono uppercase tracking-widest font-bold">LinkedIn</p>
-                <p className="text-sm font-black text-slate-200">Maxime Brucale</p>
-              </div>
-            </a>
+      <div className="mt-14 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-6">
+          <p className="max-w-lg text-lg leading-relaxed text-soft">{contact.intro}</p>
+          <p className="mt-8 font-mono text-xs text-muted">{contact.emailLabel}</p>
+          <a
+            href={`mailto:${links.email}`}
+            className="link-line mt-1 inline-block font-serif text-[clamp(1.5rem,3vw,2.5rem)] transition-colors hover:text-signal"
+          >
+            {links.email}
+          </a>
+          <div className="mt-8 flex gap-6">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-1 transition-colors hover:text-signal"
+              >
+                {social.label}
+                <ArrowUpRight size={15} aria-hidden className="text-muted group-hover:text-signal" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="bg-[#111827] p-8 rounded-3xl border border-slate-800 shadow-xl">
-          <form action="https://formspree.io/f/xgoyjrwr" method="POST" className="space-y-6">
-            <input name="name" required type="text" placeholder="Your Name" className="w-full bg-[#0b1120] border border-slate-800 rounded-xl p-4 text-sm text-white focus:border-blue-500 outline-none transition-all font-bold" />
-            <input name="email" required type="email" placeholder="Your Email" className="w-full bg-[#0b1120] border border-slate-800 rounded-xl p-4 text-sm text-white focus:border-blue-500 outline-none transition-all font-bold" />
-            <textarea name="message" required rows={4} placeholder="Your Message" className="w-full bg-[#0b1120] border border-slate-800 rounded-xl p-4 text-sm text-white focus:border-blue-500 outline-none transition-all font-bold" />
-            <button type="submit" className="w-full py-4 bg-blue-600 text-white rounded-xl font-black text-xs uppercase tracking-widest hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
-              <Send size={18} /> Send Message
+        <form action={links.formspree} method="POST" className="space-y-6 lg:col-span-5 lg:col-start-8">
+          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
+          <label className="block font-mono text-xs text-muted">
+            {contact.form.name}
+            <input
+              name="name"
+              required
+              autoComplete="name"
+              placeholder={contact.form.namePlaceholder}
+              className={`${fieldClass} font-sans text-base`}
+            />
+          </label>
+          <label className="block font-mono text-xs text-muted">
+            {contact.form.email}
+            <input
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder={contact.form.emailPlaceholder}
+              className={`${fieldClass} font-sans text-base`}
+            />
+          </label>
+          <label className="block font-mono text-xs text-muted">
+            {contact.form.message}
+            <textarea
+              name="message"
+              required
+              rows={4}
+              placeholder={contact.form.messagePlaceholder}
+              className={`${fieldClass} resize-y font-sans text-base`}
+            />
+          </label>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <button
+              type="submit"
+              className="rounded-full bg-ink px-7 py-3 text-sm font-medium text-bg transition-colors hover:bg-signal"
+            >
+              {contact.form.send}
             </button>
-          </form>
-        </div>
+            <p className="max-w-xs text-xs leading-relaxed text-muted">{contact.form.note}</p>
+          </div>
+        </form>
       </div>
-    </div>
+    </section>
   );
 }

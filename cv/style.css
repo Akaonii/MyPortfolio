@@ -1,0 +1,16 @@
+@page { size: A4; margin: 11mm 15mm 10mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Calibri, Arial, sans-serif; font-size: 9.4pt; line-height: 1.36; color: #1d1d1f; }
+h1 { font-size: 21pt; margin: 0; letter-spacing: .5px; }
+a { color: inherit; text-decoration: none; }
+.titre { font-size: 11pt; font-weight: 600; color: #0b4f8a; margin: 2px 0 4px; }
+.dispo { font-size: 10pt; font-weight: 600; margin: 0 0 4px; }
+.coord { font-size: 9pt; color: #333; margin: 0; }
+h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1px; color: #0b4f8a; border-bottom: 1.2px solid #0b4f8a; padding-bottom: 1px; margin: 7px 0 3px; }
+p { margin: 0 0 3px; }
+.poste { display: flex; justify-content: space-between; gap: 10px; font-weight: 600; margin-top: 5px; }
+.poste span:last-child { font-weight: 400; color: #444; white-space: nowrap; }
+ul { margin: 1px 0 3px; padding-left: 15px; }
+li { margin: 0 0 1.5px; }
+.ligne { margin: 0 0 2px; }
+.ligne b { font-weight: 600; }
