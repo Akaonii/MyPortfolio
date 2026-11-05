@@ -180,7 +180,7 @@ export type Content = {
 
 const size = {
   honeylink: { src: "/projects/honeylink.png", width: 1302, height: 747 },
-  honeylinkHome: { src: "/projects/honeylink-home.png", width: 1596, height: 951 },
+  honeylinkHome: { src: "/projects/honeylink-intrusions.png", width: 1596, height: 951 },
   honeylinkTests: { src: "/projects/honeylink-tests.png", width: 1600, height: 565 },
   honeylinkIstio: { src: "/projects/honeylink-istio.png", width: 1303, height: 352 },
   bureauIntro: { src: "/projects/bureau-des-failles-intro.png", width: 1531, height: 748 },
@@ -242,7 +242,7 @@ const fr: Content = {
     experienceLabel: "Stages",
     experience: [
       {
-        date: "Janv. – févr. 2026 · 5 semaines",
+        date: "Janv. – févr. 2026",
         title: "Assistant analyste SOC",
         org: "Selencia, Paris",
         points: [
@@ -253,7 +253,7 @@ const fr: Content = {
         tags: ["Microsoft Sentinel", "KQL", "Cortex", "Python"],
       },
       {
-        date: "Janv. – févr. 2025 · 5 semaines",
+        date: "Janv. – févr. 2025",
         title: "Assistant analyste, modélisation des menaces cyber",
         org: "HSBC Continental Europe, Paris",
         points: [
@@ -264,7 +264,7 @@ const fr: Content = {
         tags: ["Modélisation des menaces", "Gestion des risques"],
       },
       {
-        date: "Juin – juil. 2024 · 1 mois",
+        date: "Juin – juil. 2024",
         title: "Assistant analyste SOC",
         org: "Selencia, Paris",
         points: [
@@ -272,7 +272,7 @@ const fr: Content = {
         ],
       },
       {
-        date: "Juil. 2023 · 1 mois",
+        date: "Juil. 2023",
         title: "Stage découverte, risque et cybersécurité",
         org: "HSBC Continental Europe, Paris",
         points: [
@@ -413,7 +413,7 @@ const fr: Content = {
           {
             ...size.honeylinkHome,
             alt: "Page d'accueil de HoneyLink avec les leurres actifs et les dernières intrusions.",
-            caption: "Leurres et intrusions, avec l'outil détecté. Un User-Agent <script> reste du simple texte. IP de test.",
+            caption: "Leurres et intrusions, avec l'outil détecté. Un User-Agent <script> reste du simple texte.",
           },
           {
             ...size.honeylinkTests,
@@ -729,7 +729,7 @@ const en: Content = {
     experienceLabel: "Internships",
     experience: [
       {
-        date: "Jan – Feb 2026 · 5 weeks",
+        date: "Jan – Feb 2026",
         title: "SOC Analyst Intern",
         org: "Selencia, Paris",
         points: [
@@ -740,7 +740,7 @@ const en: Content = {
         tags: ["Microsoft Sentinel", "KQL", "Cortex", "Python"],
       },
       {
-        date: "Jan – Feb 2025 · 5 weeks",
+        date: "Jan – Feb 2025",
         title: "Cyber Threat Modeling Analyst Intern",
         org: "HSBC Continental Europe, Paris",
         points: [
@@ -751,7 +751,7 @@ const en: Content = {
         tags: ["Threat modeling", "Risk management"],
       },
       {
-        date: "Jun – Jul 2024 · 1 month",
+        date: "Jun – Jul 2024",
         title: "SOC Analyst Intern",
         org: "Selencia, Paris",
         points: [
@@ -759,7 +759,7 @@ const en: Content = {
         ],
       },
       {
-        date: "Jul 2023 · 1 month",
+        date: "Jul 2023",
         title: "Risk and Cybersecurity Discovery Intern",
         org: "HSBC Continental Europe, Paris",
         points: [
@@ -898,7 +898,7 @@ const en: Content = {
           {
             ...size.honeylinkHome,
             alt: "HoneyLink home page with active decoys and the latest intrusions.",
-            caption: "Decoys and intrusions, with the detected tool. A <script> User-Agent stays plain text. Test IPs.",
+            caption: "Decoys and intrusions, with the detected tool. A <script> User-Agent stays plain text.",
           },
           {
             ...size.honeylinkTests,
