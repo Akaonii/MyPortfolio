@@ -92,7 +92,7 @@ export default function Archive({ t }: { t: Content["projects"] }) {
                     title={item.name}
                     label={t.viewDemo}
                     closeLabel={t.closeVideo}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs transition-colors hover:text-signal"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-signal transition-colors hover:text-ink"
                   />
                 )}
               </div>
